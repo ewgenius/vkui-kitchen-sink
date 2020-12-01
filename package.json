@@ -8,8 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vkontakte/icons": "^1.60.0",
+    "@vkontakte/vk-bridge": "^2.3.0",
+    "@vkontakte/vkjs": "^0.16.0",
+    "@vkontakte/vkui": "https://github.com/VKCOM/VKUI.git#feature/vkui-embed",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.2"
   }
 }
