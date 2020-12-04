@@ -1,9 +1,8 @@
 import {
   AdaptivityProps,
-  AdaptivityProvider,
+  AppRoot,
   Avatar,
   Cell,
-  ConfigProvider,
   Group,
   Panel,
   PanelHeader,
@@ -17,12 +16,13 @@ import styles from './KitchenSinkApp.module.css';
 
 export const App = withAdaptivity(
   ({ viewWidth }: AdaptivityProps) => {
+    const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     return (
       <SplitLayout
-        className={styles['KitchenSinkApp-layout']}
+        className={styles.layout}
         header={<PanelHeader separator={false} />}
       >
-        {viewWidth >= ViewWidth.TABLET && (
+        {isDesktop && (
           <SplitCol fixed width="280px" maxWidth="280px">
             <Panel>
               <PanelHeader>VKUI</PanelHeader>
@@ -37,10 +37,10 @@ export const App = withAdaptivity(
         )}
 
         <SplitCol
-          spaced={viewWidth >= ViewWidth.TABLET}
-          animate={viewWidth <= ViewWidth.MOBILE}
-          width={viewWidth >= ViewWidth.SMALL_TABLET ? '768px' : '100%'}
-          maxWidth="768px"
+          animate={!isDesktop}
+          spaced={isDesktop}
+          width={isDesktop ? '560px' : '100%'}
+          maxWidth={isDesktop ? '560px' : '100%'}
         >
           <View activePanel="1">
             <Panel id="1">
@@ -51,15 +51,6 @@ export const App = withAdaptivity(
             </Panel>
           </View>
         </SplitCol>
-
-        {/* <SplitCol fixed maxWidth="280px">
-          {viewWidth >= ViewWidth.DESKTOP && (
-            <Panel>
-              <PanelHeader />
-              <Group></Group>
-            </Panel>
-          )}
-        </SplitCol> */}
       </SplitLayout>
     );
   },
@@ -70,10 +61,8 @@ export const App = withAdaptivity(
 
 export default function KitchenSinkApp() {
   return (
-    <ConfigProvider>
-      <AdaptivityProvider>
-        <App />
-      </AdaptivityProvider>
-    </ConfigProvider>
+    <AppRoot>
+      <App />
+    </AppRoot>
   );
 }

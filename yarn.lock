@@ -182,14 +182,9 @@
   resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.16.0.tgz#345a98453d8ed12dcc6c0d1316bcd520e44b748c"
   integrity sha512-XkRSveyHtjAZTk7F7L9x4j172mZacsgLblJcnonQGavGvenixxHtHWG/LAk6XYTDLxC81thwnYdlRXYdZox+iA==
 
-"@vkontakte/vkui@^4.0.0-beta.34":
-  version "4.0.0-beta.34"
-  resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.0.0-beta.34.tgz#85f186a40b2914d12f5c69a291a5dfe3c57a49da"
-  integrity sha512-OxsbyuIhTByY97+Hy108uYHi4yRD3oRyT7qz1v4RG5jmrqTWr0XYXm44BOJBME0lBu1n6zi4NBFd99tsR3aIPg==
-
 "@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#feature/vkui-embed":
   version "4.0.0-beta.34"
-  resolved "https://github.com/VKCOM/VKUI.git#994a9b6cd68968d03ae48a446986079a9cb43b99"
+  resolved "https://github.com/VKCOM/VKUI.git#b231aacf57fde01158dd47833a2e7b5b501a5e6a"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
