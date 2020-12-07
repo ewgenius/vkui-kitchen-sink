@@ -184,7 +184,7 @@
 
 "@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#feature/vkui-embed":
   version "4.0.0-beta.34"
-  resolved "https://github.com/VKCOM/VKUI.git#b231aacf57fde01158dd47833a2e7b5b501a5e6a"
+  resolved "https://github.com/VKCOM/VKUI.git#d8cdba2fcd1124d99f99de6bf364823a8383e963"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"

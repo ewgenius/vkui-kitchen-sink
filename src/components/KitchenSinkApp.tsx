@@ -1,11 +1,16 @@
 import {
+  Icon24AddOutline,
+  Icon28ServicesCircleFillBlue,
+  Icon28ServicesOutline,
+} from '@vkontakte/icons';
+import {
   AdaptivityProps,
   AppRoot,
-  Avatar,
   Cell,
   Group,
   Panel,
   PanelHeader,
+  SimpleCell,
   SplitCol,
   SplitLayout,
   View,
@@ -25,13 +30,12 @@ export const App = withAdaptivity(
         {isDesktop && (
           <SplitCol fixed width="280px" maxWidth="280px">
             <Panel>
-              <PanelHeader>VKUI</PanelHeader>
-              <Cell>1</Cell>
-              <Cell>1</Cell>
-              <Cell>1</Cell>
-              <Cell>1</Cell>
-              <Cell>1</Cell>
-              <Cell>1</Cell>
+              <PanelHeader
+                left={<img style={{ height: 36 }} src="/logo.png" />}
+              />
+              <SimpleCell before={<Icon28ServicesOutline />}>Panels</SimpleCell>
+              <SimpleCell>Modals</SimpleCell>
+              <SimpleCell>Cells</SimpleCell>
             </Panel>
           </SplitCol>
         )}
@@ -44,9 +48,15 @@ export const App = withAdaptivity(
         >
           <View activePanel="1">
             <Panel id="1">
-              <PanelHeader right={<Avatar size={36} />}>test</PanelHeader>
+              <PanelHeader>Modals</PanelHeader>
               <Group>
-                <div style={{ height: 2000 }} />
+                <div style={{ height: 200 }} />
+              </Group>
+              <Group>
+                <div style={{ height: 200 }} />
+              </Group>
+              <Group>
+                <div style={{ height: 200 }} />
               </Group>
             </Panel>
           </View>
