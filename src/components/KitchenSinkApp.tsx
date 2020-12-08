@@ -1,26 +1,42 @@
 import {
-  Icon24AddOutline,
-  Icon28ServicesCircleFillBlue,
   Icon28ServicesOutline,
+  Icon28SunOutline,
+  Icon28MoonOutline,
 } from '@vkontakte/icons';
 import {
   AdaptivityProps,
   AppRoot,
-  Cell,
   Group,
   Panel,
   PanelHeader,
+  PanelHeaderBack,
+  PanelHeaderButton,
+  Scheme,
   SimpleCell,
   SplitCol,
   SplitLayout,
+  Switch,
   View,
   ViewWidth,
+  WebviewType,
   withAdaptivity,
 } from '@vkontakte/vkui';
+import { useCallback, useContext, useState } from 'react';
 import styles from './KitchenSinkApp.module.css';
+import { KitchenSinkContext } from './KitchenSinkContext';
 
 export const App = withAdaptivity(
   ({ viewWidth }: AdaptivityProps) => {
+    const { scheme, setScheme } = useContext(KitchenSinkContext);
+    const toggleScheme = useCallback(
+      () =>
+        setScheme(
+          scheme === Scheme.BRIGHT_LIGHT
+            ? Scheme.SPACE_GRAY
+            : Scheme.BRIGHT_LIGHT
+        ),
+      [scheme]
+    );
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     return (
       <SplitLayout
@@ -32,6 +48,15 @@ export const App = withAdaptivity(
             <Panel>
               <PanelHeader
                 left={<img style={{ height: 36 }} src="/logo.png" />}
+                right={
+                  <PanelHeaderButton onClick={toggleScheme}>
+                    {scheme === Scheme.BRIGHT_LIGHT ? (
+                      <Icon28MoonOutline />
+                    ) : (
+                      <Icon28SunOutline />
+                    )}
+                  </PanelHeaderButton>
+                }
               />
               <SimpleCell before={<Icon28ServicesOutline />}>Panels</SimpleCell>
               <SimpleCell>Modals</SimpleCell>
@@ -70,9 +95,21 @@ export const App = withAdaptivity(
 );
 
 export default function KitchenSinkApp() {
+  const [scheme, setScheme] = useState<Scheme>(Scheme.BRIGHT_LIGHT);
   return (
-    <AppRoot>
-      <App />
-    </AppRoot>
+    <KitchenSinkContext.Provider
+      value={{
+        scheme,
+        setScheme,
+      }}
+    >
+      <AppRoot
+        scheme={scheme}
+        isWebView={true}
+        webviewType={WebviewType.INTERNAL}
+      >
+        <App />
+      </AppRoot>
+    </KitchenSinkContext.Provider>
   );
 }

@@ -1,3 +1,14 @@
 .layout {
   justify-content: center;
 }
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.themeToggle > *:not(:last-child) {
+  margin-right: 8px;
+}
