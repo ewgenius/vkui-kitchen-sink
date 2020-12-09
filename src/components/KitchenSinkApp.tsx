@@ -59,7 +59,7 @@ export const App = withAdaptivity(
                   </PanelHeaderButton>
                 }
               />
-              <SimpleCell before={<Icon28ServicesOutline />}>Panels</SimpleCell>
+              <SimpleCell>Panels</SimpleCell>
               <SimpleCell>Modals</SimpleCell>
               <SimpleCell>Cells</SimpleCell>
             </Panel>
@@ -74,7 +74,9 @@ export const App = withAdaptivity(
         >
           <View activePanel="1">
             <Panel id="1">
-              <PanelHeader>Modals</PanelHeader>
+              <PanelHeader left={<PanelHeaderBack />}>
+                Super long header text which should be ellipsized
+              </PanelHeader>
               <Group>
                 <div style={{ height: 200 }} />
               </Group>
