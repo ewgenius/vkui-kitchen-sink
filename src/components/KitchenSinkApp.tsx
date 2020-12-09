@@ -4,8 +4,9 @@ import {
   Icon28MoonOutline,
 } from '@vkontakte/icons';
 import {
+  ConfigProvider,
+  AdaptivityProvider,
   AdaptivityProps,
-  AppRoot,
   Group,
   Panel,
   PanelHeader,
@@ -103,13 +104,15 @@ export default function KitchenSinkApp() {
         setScheme,
       }}
     >
-      <AppRoot
+      <ConfigProvider
         scheme={scheme}
         isWebView={true}
         webviewType={WebviewType.INTERNAL}
       >
-        <App />
-      </AppRoot>
+        <AdaptivityProvider>
+          <App />
+        </AdaptivityProvider>
+      </ConfigProvider>
     </KitchenSinkContext.Provider>
   );
 }
