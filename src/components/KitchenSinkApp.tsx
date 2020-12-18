@@ -1,5 +1,4 @@
-import { Icon28SunOutline, Icon28MoonOutline } from '@vkontakte/icons';
-import { NavigatorProvider } from '@vkontakte/router';
+import { NavigatorProvider, WithNavigator } from '@vkontakte/router';
 import {
   ConfigProvider,
   AdaptivityProvider,
@@ -8,7 +7,6 @@ import {
   Panel,
   PanelHeader,
   PanelHeaderBack,
-  PanelHeaderButton,
   Scheme,
   SimpleCell,
   SplitCol,
@@ -21,44 +19,46 @@ import {
   VKCOM,
   AppRoot,
 } from '@vkontakte/vkui';
-import {
-  FC,
-  PropsWithChildren,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { PropsWithChildren, ReactElement, useState } from 'react';
 import styles from './KitchenSinkApp.module.css';
 import { KitchenSinkContext } from './KitchenSinkContext';
+import { SchemeToggle } from './SchemeToggle';
 
-export interface LayoutProps extends PropsWithChildren<AdaptivityProps> {}
+export interface NaviagtionItem {
+  route: string;
+  title: string;
+  icon: ReactElement;
+}
+export interface LayoutProps
+  extends PropsWithChildren<AdaptivityProps>,
+    WithNavigator {
+  navigationItems: NaviagtionItem[];
+}
 
 export const Layout = withAdaptivity(
-  ({ viewWidth, children }: LayoutProps) => {
+  ({ viewWidth, children, page }: LayoutProps) => {
     const platform = usePlatform();
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     const hasPanel = platform !== VKCOM;
 
     return (
-      <NavigatorProvider>
-        <SplitLayout
-          className={styles.layout}
-          header={hasPanel && <PanelHeader separator={false} />}
-        >
-          {isDesktop && (
-            <SplitCol fixed width="280px" maxWidth="280px"></SplitCol>
-          )}
+      <SplitLayout
+        className={styles.layout}
+        header={hasPanel && <PanelHeader separator={false} />}
+      >
+        {isDesktop && (
+          <SplitCol fixed width="280px" maxWidth="280px"></SplitCol>
+        )}
 
-          <SplitCol
-            animate={!isDesktop}
-            spaced={isDesktop}
-            width={isDesktop ? '560px' : '100%'}
-            maxWidth={isDesktop ? '560px' : '100%'}
-          >
-            {children}
-          </SplitCol>
-        </SplitLayout>
-      </NavigatorProvider>
+        <SplitCol
+          animate={!isDesktop}
+          spaced={isDesktop}
+          width={isDesktop ? '560px' : '100%'}
+          maxWidth={isDesktop ? '560px' : '100%'}
+        >
+          {children}
+        </SplitCol>
+      </SplitLayout>
     );
   },
   {
@@ -68,16 +68,6 @@ export const Layout = withAdaptivity(
 
 export const App = withAdaptivity(
   ({ viewWidth }: AdaptivityProps) => {
-    const { scheme, setScheme } = useContext(KitchenSinkContext);
-    const toggleScheme = useCallback(
-      () =>
-        setScheme(
-          scheme === Scheme.BRIGHT_LIGHT
-            ? Scheme.SPACE_GRAY
-            : Scheme.BRIGHT_LIGHT
-        ),
-      [scheme]
-    );
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     return (
       <SplitLayout
@@ -89,15 +79,7 @@ export const App = withAdaptivity(
             <Panel>
               <PanelHeader
                 left={<img style={{ height: 36 }} src="/logo.png" />}
-                right={
-                  <PanelHeaderButton onClick={toggleScheme}>
-                    {scheme === Scheme.BRIGHT_LIGHT ? (
-                      <Icon28MoonOutline />
-                    ) : (
-                      <Icon28SunOutline />
-                    )}
-                  </PanelHeaderButton>
-                }
+                right={<SchemeToggle />}
               />
               <SimpleCell>Panels</SimpleCell>
               <SimpleCell>Modals</SimpleCell>
@@ -153,7 +135,19 @@ export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
           webviewType={WebviewType.INTERNAL}
         >
           <AdaptivityProvider>
-            <App />
+            <NavigatorProvider
+              routes={[
+                {
+                  name: 'Home',
+                },
+              ]}
+              config={{
+                defaultRoute: 'Home',
+                rootPage: '',
+              }}
+            >
+              <App />
+            </NavigatorProvider>
           </AdaptivityProvider>
         </ConfigProvider>
       </KitchenSinkContext.Provider>
