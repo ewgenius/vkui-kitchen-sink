@@ -172,6 +172,11 @@
     es6-object-assign "1.1.0"
     svg-baker-runtime "1.4.6"
 
+"@vkontakte/router@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@vkontakte/router/-/router-0.0.12.tgz#5b32279549eb1d70f6b84ba7bb915fb34bb24435"
+  integrity sha512-X/Sc2+ByOTC4yhay+l1Izm/dqsk5DYCH0WhILv9mhu9J7vb5Fi3yfflOM1bTVXrRqrUBejvZXqzzljMrmyzbuA==
+
 "@vkontakte/vk-bridge@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.3.0.tgz#d436daeab23bf51a4485a3a45493f793dab78187"
@@ -186,6 +191,10 @@
   version "4.0.0-beta.37"
   resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.0.0-beta.37.tgz#f097ec24e7d8fa7fe50177f8c2b27d8cbd8ab5c7"
   integrity sha512-fYc/dOtZnubaSau461prWlF44xZtAkQBclJpIUQCKHi2FJv/zK5NkIXuD+FszP9c+lzXLIlaPYJmvPtxzgJPMQ==
+
+"@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#feature/vkui-embed":
+  version "4.0.0-beta.37"
+  resolved "https://github.com/VKCOM/VKUI.git#fe907bf1cb370bec53d7e22ee170e08fb81810bc"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
