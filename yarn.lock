@@ -191,6 +191,10 @@
   version "4.0.0-beta.37"
   resolved "https://github.com/VKCOM/VKUI.git#2a7485ba9603d898964254bbb9dc99995e62148a"
 
+"@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#v4":
+  version "4.0.0-beta.37"
+  resolved "https://github.com/VKCOM/VKUI.git#ad09b62de644548db33b4ed09ed556f598de3966"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
