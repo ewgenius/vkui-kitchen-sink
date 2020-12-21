@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
-const KitchenSinkApp = dynamic(() => import('../components/KitchenSinkApp'), {
+const KitchenSinkApp = dynamic(() => import('../apps/KitchenSinkApp'), {
   ssr: false,
 });
 

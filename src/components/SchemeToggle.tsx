@@ -1,7 +1,7 @@
 import { Icon28SunOutline, Icon28MoonOutline } from '@vkontakte/icons';
 import { PanelHeaderButton, Scheme } from '@vkontakte/vkui';
 import { useCallback, useContext } from 'react';
-import { KitchenSinkContext } from './KitchenSinkContext';
+import { KitchenSinkContext } from '../apps/KitchenSinkContext';
 
 export const SchemeToggle = () => {
   const { scheme, setScheme } = useContext(KitchenSinkContext);

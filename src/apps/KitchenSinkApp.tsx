@@ -22,7 +22,7 @@ import {
 import { PropsWithChildren, ReactElement, useState } from 'react';
 import styles from './KitchenSinkApp.module.css';
 import { KitchenSinkContext } from './KitchenSinkContext';
-import { SchemeToggle } from './SchemeToggle';
+import { SchemeToggle } from '../components/SchemeToggle';
 
 export interface NaviagtionItem {
   route: string;
