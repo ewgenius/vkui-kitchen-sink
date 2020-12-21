@@ -155,12 +155,12 @@ export const App = withAdaptivity(
 
 export default function EpicTabbarApp() {
   return (
-    <AppRoot>
-      <ConfigProvider isWebView={true} webviewType={WebviewType.INTERNAL}>
-        <AdaptivityProvider>
+    <ConfigProvider isWebView={true} webviewType={WebviewType.INTERNAL}>
+      <AdaptivityProvider>
+        <AppRoot>
           <App />
-        </AdaptivityProvider>
-      </ConfigProvider>
-    </AppRoot>
+        </AppRoot>
+      </AdaptivityProvider>
+    </ConfigProvider>
   );
 }

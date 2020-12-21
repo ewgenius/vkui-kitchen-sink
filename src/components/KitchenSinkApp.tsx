@@ -122,19 +122,19 @@ export const App = withAdaptivity(
 export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
   const [scheme, setScheme] = useState<Scheme>(Scheme.BRIGHT_LIGHT);
   return (
-    <AppRoot embedded={embedded}>
-      <KitchenSinkContext.Provider
-        value={{
-          scheme,
-          setScheme,
-        }}
+    <KitchenSinkContext.Provider
+      value={{
+        scheme,
+        setScheme,
+      }}
+    >
+      <ConfigProvider
+        scheme={scheme}
+        isWebView={true}
+        webviewType={WebviewType.INTERNAL}
       >
-        <ConfigProvider
-          scheme={scheme}
-          isWebView={true}
-          webviewType={WebviewType.INTERNAL}
-        >
-          <AdaptivityProvider>
+        <AdaptivityProvider>
+          <AppRoot embedded={embedded}>
             <NavigatorProvider
               routes={[
                 {
@@ -148,9 +148,9 @@ export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
             >
               <App />
             </NavigatorProvider>
-          </AdaptivityProvider>
-        </ConfigProvider>
-      </KitchenSinkContext.Provider>
-    </AppRoot>
+          </AppRoot>
+        </AdaptivityProvider>
+      </ConfigProvider>
+    </KitchenSinkContext.Provider>
   );
 }
