@@ -1,3 +1,4 @@
+import { Icon28Services, Icon28Settings } from '@vkontakte/icons';
 import {
   AppRoot,
   AdaptivityProvider,
@@ -11,33 +12,59 @@ import {
   HasInsets,
   FormItem,
   Div,
+  Epic,
+  Tabbar,
+  TabbarItem,
+  WebviewType,
 } from '@vkontakte/vkui';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import bridge from '../utils/vkBridge';
 
 export const VKMiniApp: FC<HasInsets> = withInsets(({ insets }) => {
+  const [state, setState] = useState({});
+
   useEffect(() => {
-    const listener = ({ detail: { type, data } }) => {};
+    const listener = ({ detail: { type, data } }) => {
+      if (data.insets) {
+        console.log(data);
+        setState(data.insets);
+      }
+    };
 
     bridge.subscribe(listener);
     bridge.send('VKWebAppInit');
   }, []);
 
   return (
-    <ConfigProvider>
+    <ConfigProvider isWebView={true} webviewType={WebviewType.INTERNAL}>
       <AdaptivityProvider>
         <AppRoot>
-          <View activePanel="panel">
-            <Panel id="panel">
-              <PanelHeader>Test App</PanelHeader>
-              <Group>
-                <FormItem>
-                  <Input />
-                </FormItem>
-                <Div>{JSON.stringify(insets, null, 2)}</Div>
-              </Group>
-            </Panel>
-          </View>
+          <Epic
+            activeStory="1"
+            tabbar={
+              <Tabbar>
+                <TabbarItem>
+                  <Icon28Services />
+                </TabbarItem>
+                <TabbarItem>
+                  <Icon28Settings />
+                </TabbarItem>
+              </Tabbar>
+            }
+          >
+            <View id="1" activePanel="panel">
+              <Panel id="panel">
+                <PanelHeader>Test App</PanelHeader>
+                <Group>
+                  <Div>{JSON.stringify(insets, null, 2)}</Div>
+                  <Div>{JSON.stringify(state, null, 2)}</Div>
+                  <FormItem>
+                    <Input />
+                  </FormItem>
+                </Group>
+              </Panel>
+            </View>
+          </Epic>
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>

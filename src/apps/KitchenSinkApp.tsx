@@ -133,16 +133,10 @@ export const App = withAdaptivity(
           >
             <View id="1" activePanel={panel}>
               <Panel id="1">
-                <PanelHeader>Компоненты</PanelHeader>
-                <FixedLayout vertical="top">
-                  <Search />
-                </FixedLayout>
-                <div
-                  className={classNames(styles.content, {
-                    [styles.contentDesktop]: isDesktop,
-                  })}
-                >
-                  <Separator expanded className={styles.separator} />
+                <PanelHeader right={<Search className={styles.search} />}>
+                  Компоненты
+                </PanelHeader>
+                <Group>
                   <CardGrid size="m">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
                       <Card key={i} onClick={() => setPanel('2')}>
@@ -150,7 +144,7 @@ export const App = withAdaptivity(
                       </Card>
                     ))}
                   </CardGrid>
-                </div>
+                </Group>
               </Panel>
 
               <Panel id="2">

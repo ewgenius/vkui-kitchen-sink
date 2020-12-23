@@ -1,14 +1,12 @@
-import { VKBridge } from "@vkontakte/vk-bridge";
+import { VKBridge } from '@vkontakte/vk-bridge';
 
 const isDev =
-  process.env.NODE_ENV === "development" ||
-  window.location.pathname.endsWith("/app-preview");
+  process.env.NODE_ENV === 'development' ||
+  window.location.pathname.endsWith('/app-preview');
 
-const bridge: VKBridge = isDev
-  ? require("@vkontakte/vk-bridge-mock").default
-  : require("@vkontakte/vk-bridge").default;
+const bridge: VKBridge = require('@vkontakte/vk-bridge').default;
 
-window["bridge"] = bridge;
+window['bridge'] = bridge;
 
 export const setStorageValue = (key: string, value: string) => {
   return isDev
@@ -16,7 +14,7 @@ export const setStorageValue = (key: string, value: string) => {
         localStorage.setItem(key, value);
         resolve({ result: true });
       })
-    : bridge.send("VKWebAppStorageSet", {
+    : bridge.send('VKWebAppStorageSet', {
         key,
         value,
       });
@@ -27,7 +25,7 @@ export const getStorageValue = (key: string) => {
     ? new Promise<string>((resolve) => {
         resolve(localStorage.getItem(key));
       })
-    : bridge.send("VKWebAppStorageGet", { keys: [key] }).then(({ keys }) => {
+    : bridge.send('VKWebAppStorageGet', { keys: [key] }).then(({ keys }) => {
         return keys && keys[0] && keys[0].value;
       });
 };

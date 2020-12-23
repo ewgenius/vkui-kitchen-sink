@@ -13,24 +13,10 @@
   margin-right: 8px;
 }
 
-.separator {
-  margin-top: 32px;
-}
-
-.content {
-  position: relative;
-  background-color: var(--background_content);
-}
-
-.contentDesktop {
-  padding: 8px 16px 16px;
-  border-radius: 8px;
-}
-
-.contentDesktop .separator {
-  margin-top: 16px;
-}
-
 .card {
   padding: 64px 12px;
+}
+
+.search {
+  max-width: 200px;
 }
