@@ -177,7 +177,14 @@
   resolved "https://registry.yarnpkg.com/@vkontakte/router/-/router-0.0.12.tgz#5b32279549eb1d70f6b84ba7bb915fb34bb24435"
   integrity sha512-X/Sc2+ByOTC4yhay+l1Izm/dqsk5DYCH0WhILv9mhu9J7vb5Fi3yfflOM1bTVXrRqrUBejvZXqzzljMrmyzbuA==
 
-"@vkontakte/vk-bridge@^2.3.0":
+"@vkontakte/vk-bridge-mock@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge-mock/-/vk-bridge-mock-2.0.3.tgz#ef75283b3f00b6f6d3851c6dd1358894d90952ef"
+  integrity sha512-/RtJV+Iw0CVhw/iT6pHYq9wDeMPbkWAgvYWhd/jg0Ins1mm5zWE13ul+0U0vPPjH/h1WOK4t5SjOOjUUEh8iWw==
+  dependencies:
+    "@vkontakte/vk-bridge" "^2.1.2"
+
+"@vkontakte/vk-bridge@^2.1.2", "@vkontakte/vk-bridge@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.3.0.tgz#d436daeab23bf51a4485a3a45493f793dab78187"
   integrity sha512-1kICD4u5J8EO4PyGg7ZMBwOju85Wh7zb5OxVs1JYB/ghTHg5YQSmpIx9M4NZH2TnK9KelUpBEs+TwFpkB5PMyw==
