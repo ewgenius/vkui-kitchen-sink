@@ -23,21 +23,18 @@ import {
   ModalPage,
   ModalPageHeader,
   Search,
-  FixedLayout,
-  Separator,
   Header,
   Title,
   Div,
   Text,
-  Subhead,
   Caption,
   PanelHeaderBack,
-  classNames,
   FormItem,
 } from '@vkontakte/vkui';
 import {
   PropsWithChildren,
   ReactElement,
+  ReactNode,
   useContext,
   useEffect,
   useState,
@@ -49,6 +46,7 @@ import {
   Icon28ServicesOutline,
   Icon28PaletteOutline,
   Icon28InfoCircleOutline,
+  Icon28LightbulbStarOutline,
 } from '@vkontakte/icons';
 import bridge from '../utils/vkBridge';
 
@@ -60,6 +58,18 @@ export interface NaviagtionItem {
 export interface LayoutProps extends PropsWithChildren<AdaptivityProps> {
   navigationItems: NaviagtionItem[];
 }
+
+export interface NavigationItem {
+  path: string;
+  title: string;
+  icon: ReactNode;
+}
+
+export const navigation: NavigationItem[] = [
+  { path: '/', title: 'Компоненты', icon: <Icon28ServicesOutline /> },
+  { path: '/', title: 'Внешний Вид', icon: <Icon28PaletteOutline /> },
+  { path: '/', title: 'VK Icons', icon: <Icon28LightbulbStarOutline /> },
+];
 
 export const App = withAdaptivity(
   ({ viewWidth }: AdaptivityProps) => {
@@ -100,12 +110,11 @@ export const App = withAdaptivity(
                 left={<img style={{ height: 36 }} src="/logo.png" />}
                 right={<SchemeToggle />}
               />
-              <SimpleCell before={<Icon28ServicesOutline />}>
-                Компоненты
-              </SimpleCell>
-              <SimpleCell before={<Icon28PaletteOutline />}>
-                Внешний Вид
-              </SimpleCell>
+              {navigation.map(({ title, icon }, i) => (
+                <SimpleCell key={`nav_${i}`} before={icon}>
+                  {title}
+                </SimpleCell>
+              ))}
             </Panel>
           </SplitCol>
         )}
@@ -121,12 +130,11 @@ export const App = withAdaptivity(
             tabbar={
               !isDesktop && (
                 <Tabbar>
-                  <TabbarItem text="Компоненты">
-                    <Icon28ServicesOutline />
-                  </TabbarItem>
-                  <TabbarItem text="Внешний Вид">
-                    <Icon28PaletteOutline />
-                  </TabbarItem>
+                  {navigation.map(({ title, icon }, i) => (
+                    <TabbarItem key={`tab_${i}`} text={title}>
+                      {icon}
+                    </TabbarItem>
+                  ))}
                 </Tabbar>
               )
             }
