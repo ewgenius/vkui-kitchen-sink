@@ -6,8 +6,6 @@ const isDev =
 
 const bridge: VKBridge = require('@vkontakte/vk-bridge').default;
 
-window['bridge'] = bridge;
-
 export const setStorageValue = (key: string, value: string) => {
   return isDev
     ? new Promise<{ result: true }>((resolve) => {
