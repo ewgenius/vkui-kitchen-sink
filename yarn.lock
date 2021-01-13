@@ -195,8 +195,8 @@
   integrity sha512-bocEj9pcr6i6F0LN288xU3PX1MI4OJ3ZJXTa6kFx9IqEgk0CnoMtLAcuH2D7DzZAnc83DJCa/tuo9mT7XW035A==
 
 "@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#fix/ssr-support":
-  version "4.0.3"
-  resolved "https://github.com/VKCOM/VKUI.git#06da57364d39e9985bbc6ad30b66fc935251a85d"
+  version "4.0.4"
+  resolved "https://github.com/VKCOM/VKUI.git#c6c25fbf233c41de343075895dadcabef54281cf"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"

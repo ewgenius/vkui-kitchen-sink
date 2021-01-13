@@ -1,7 +1,9 @@
 import { VKBridge } from '@vkontakte/vk-bridge';
+import { canUseDOM } from '@vkontakte/vkjs/lib/dom';
 
 const isDev =
   process.env.NODE_ENV === 'development' ||
+  !canUseDOM ||
   window.location.pathname.endsWith('/app-preview');
 
 const bridge: VKBridge = require('@vkontakte/vk-bridge').default;
