@@ -49,6 +49,36 @@ import {
   Icon28LightbulbStarOutline,
 } from '@vkontakte/icons';
 import bridge from '../utils/vkBridge';
+import { ChipsSelect } from '@vkontakte/vkui/unstable';
+
+const colors = [
+  { value: '1', label: 'Красный' },
+  { value: '2', label: 'Синий' },
+];
+
+const Chips = () => {
+  const [selectedColors, setSelectedColors] = useState([
+    { value: '1', label: 'Красный' },
+  ]);
+
+  const colorsChipsProps = {
+    value: selectedColors,
+    onChange: setSelectedColors,
+    options: colors,
+    top: 'Выберите или добавьте цвета',
+    placeholder: 'Не выбраны',
+    creatable: true,
+    creatableText: 'Создать значение',
+  };
+
+  return (
+    <Group>
+      <FormItem top="Выберите или добавьте цвета">
+        <ChipsSelect {...colorsChipsProps} />
+      </FormItem>
+    </Group>
+  );
+};
 
 export interface NaviagtionItem {
   route: string;
@@ -71,8 +101,13 @@ export const navigation: NavigationItem[] = [
   { path: '/', title: 'VK Icons', icon: <Icon28LightbulbStarOutline /> },
 ];
 
+export interface KitchenSinkAppProps {
+  embedded?: boolean;
+  ssrValue?: string;
+}
+
 export const App = withAdaptivity(
-  ({ viewWidth }: AdaptivityProps) => {
+  ({ viewWidth, ssrValue }: AdaptivityProps & KitchenSinkAppProps) => {
     const [panel, setPanel] = useState('1');
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     const { setScheme } = useContext(KitchenSinkContext);
@@ -144,6 +179,7 @@ export const App = withAdaptivity(
                 <PanelHeader right={<Search className={styles.search} />}>
                   Компоненты
                 </PanelHeader>
+                <Group>{ssrValue}</Group>
                 <Group>
                   <CardGrid size="m">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
@@ -190,6 +226,7 @@ export const App = withAdaptivity(
               <Group header={<Header>Свойства</Header>}>
                 <FormItem></FormItem>
               </Group>
+              <Chips />
             </Panel>
           </SplitCol>
         )}
@@ -201,7 +238,10 @@ export const App = withAdaptivity(
   }
 );
 
-export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
+export default function KitchenSinkApp({
+  embedded,
+  ssrValue,
+}: KitchenSinkAppProps) {
   const [scheme, setScheme] = useState<Scheme>(Scheme.BRIGHT_LIGHT);
   return (
     <KitchenSinkContext.Provider
@@ -217,7 +257,7 @@ export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
       >
         <AdaptivityProvider>
           <AppRoot embedded={embedded}>
-            <App />
+            <App ssrValue={ssrValue} />
           </AppRoot>
         </AdaptivityProvider>
       </ConfigProvider>

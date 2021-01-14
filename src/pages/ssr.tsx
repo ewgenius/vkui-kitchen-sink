@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Head from 'next/head';
 import { SSRWrapper } from '@vkontakte/vkui';
 import KitchenSinkApp from '../apps/KitchenSinkApp';
+import { GetServerSideProps } from 'next';
 
-export default function Index() {
+export interface SSRPageProps {
+  ssrValue: string;
+}
+
+export const SSRPage: FC<SSRPageProps> = ({ ssrValue }) => {
   return (
     <>
       <Head>
@@ -14,8 +19,18 @@ export default function Index() {
         />
       </Head>
       <SSRWrapper>
-        <KitchenSinkApp />
+        <KitchenSinkApp ssrValue={ssrValue} />
       </SSRWrapper>
     </>
   );
-}
+};
+
+export default SSRPage;
+
+export const getServerSideProps: GetServerSideProps<SSRPageProps> = async () => {
+  return {
+    props: {
+      ssrValue: 'SSR: ' + Date.now(),
+    },
+  };
+};

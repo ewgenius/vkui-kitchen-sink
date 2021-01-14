@@ -196,7 +196,7 @@
 
 "@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#fix/ssr-support":
   version "4.0.4"
-  resolved "https://github.com/VKCOM/VKUI.git#c6c25fbf233c41de343075895dadcabef54281cf"
+  resolved "https://github.com/VKCOM/VKUI.git#7e91879129a459ba34983d001b5becbdf3182bbd"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
