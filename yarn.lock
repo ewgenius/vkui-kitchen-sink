@@ -198,6 +198,10 @@
   version "4.0.4"
   resolved "https://github.com/VKCOM/VKUI.git#7e91879129a459ba34983d001b5becbdf3182bbd"
 
+"@vkontakte/vkui@https://github.com/VKCOM/VKUI.git#master":
+  version "4.0.4"
+  resolved "https://github.com/VKCOM/VKUI.git#bda9b06409d1c8d43d03ffc49452b6953fc7287b"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
