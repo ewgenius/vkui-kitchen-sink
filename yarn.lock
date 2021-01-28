@@ -189,15 +189,15 @@
   resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.3.0.tgz#d436daeab23bf51a4485a3a45493f793dab78187"
   integrity sha512-1kICD4u5J8EO4PyGg7ZMBwOju85Wh7zb5OxVs1JYB/ghTHg5YQSmpIx9M4NZH2TnK9KelUpBEs+TwFpkB5PMyw==
 
-"@vkontakte/vkjs@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.16.0.tgz#345a98453d8ed12dcc6c0d1316bcd520e44b748c"
-  integrity sha512-XkRSveyHtjAZTk7F7L9x4j172mZacsgLblJcnonQGavGvenixxHtHWG/LAk6XYTDLxC81thwnYdlRXYdZox+iA==
+"@vkontakte/vkjs@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.20.0.tgz#ddb9367649ab7e79754b9906c3f6e1960f624c37"
+  integrity sha512-bocEj9pcr6i6F0LN288xU3PX1MI4OJ3ZJXTa6kFx9IqEgk0CnoMtLAcuH2D7DzZAnc83DJCa/tuo9mT7XW035A==
 
-"@vkontakte/vkui@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.0.2.tgz#e7cc0421f83022a241ce990bd987b9827da1d9d9"
-  integrity sha512-Zs9mx56x2NWiv0IlT3jmD9fBjX63HnZS7fW8PBp0+r30Zr4pkb0cIZyvgHOULgrM3Q4mhDtD7fCNzRRjuf7vug==
+"@vkontakte/vkui@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.0.4.tgz#8485ebf9e818e391f09589a9333ddbd974bb287c"
+  integrity sha512-kj8S5J/fAyWiCeqEg1Q5tfzkHEtaXmhh4rWKIGU9GzMZYZIszWZU3RmUPtJPf3wKhs9p6cm3VhSzNKsHA+WSbA==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
