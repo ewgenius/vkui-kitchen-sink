@@ -35,11 +35,15 @@ import {
   HorizontalScroll,
   HorizontalCell,
   Avatar,
+  PanelHeaderContent,
+  ANDROID,
+  PanelHeaderButton,
 } from '@vkontakte/vkui';
 import {
   PropsWithChildren,
   ReactElement,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -52,6 +56,8 @@ import {
   Icon28PaletteOutline,
   Icon28InfoCircleOutline,
   Icon28LightbulbStarOutline,
+  Icon16Dropdown,
+  Icon28Settings,
 } from '@vkontakte/icons';
 import bridge from '../utils/vkBridge';
 
@@ -76,12 +82,20 @@ export const navigation: NavigationItem[] = [
   { path: '/', title: 'VK Icons', icon: <Icon28LightbulbStarOutline /> },
 ];
 
+export interface KitchenSinkAppProps
+  extends Pick<AdaptivityProps, 'viewWidth' | 'hasMouse'> {
+  embedded?: boolean;
+}
+
 export const App = withAdaptivity(
   ({ viewWidth }: AdaptivityProps) => {
     const [panel, setPanel] = useState('1');
     const [modal, setModal] = useState(null);
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
     const { setScheme } = useContext(KitchenSinkContext);
+
+    const [opened, setOpened] = useState(false);
+    const toggleOpened = useCallback(() => setOpened(!opened), [opened]);
 
     useEffect(() => {
       const listener = ({ detail: { type, data } }) => {
@@ -241,8 +255,24 @@ export const App = withAdaptivity(
               <Panel id="2">
                 <PanelHeader
                   left={<PanelHeaderBack onClick={() => setPanel('1')} />}
+                  right={
+                    <PanelHeaderButton>
+                      <Icon28Settings />
+                    </PanelHeaderButton>
+                  }
                 >
-                  Компонент
+                  <PanelHeaderContent
+                    onClick={toggleOpened}
+                    aside={
+                      <Icon16Dropdown
+                        style={{
+                          transform: `rotate(${opened ? '180deg' : '0'})`,
+                        }}
+                      />
+                    }
+                  >
+                    Clickable header updated
+                  </PanelHeaderContent>
                 </PanelHeader>
 
                 <Group>test</Group>
@@ -284,7 +314,10 @@ export const App = withAdaptivity(
   }
 );
 
-export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
+export default function KitchenSinkApp({
+  embedded,
+  ...adaptivityProps
+}: KitchenSinkAppProps) {
   const [scheme, setScheme] = useState<Scheme>(Scheme.BRIGHT_LIGHT);
   return (
     <KitchenSinkContext.Provider
@@ -296,9 +329,10 @@ export default function KitchenSinkApp({ embedded }: { embedded?: boolean }) {
       <ConfigProvider
         scheme={scheme}
         isWebView={true}
+        platform={ANDROID}
         webviewType={WebviewType.INTERNAL}
       >
-        <AdaptivityProvider>
+        <AdaptivityProvider {...adaptivityProps}>
           <AppRoot embedded={embedded}>
             <App />
           </AppRoot>
