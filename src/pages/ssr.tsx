@@ -3,10 +3,13 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import KitchenSinkApp from '../apps/KitchenSinkApp';
 import { ViewWidth } from '@vkontakte/vkui';
+import { GetServerSideProps } from 'next';
 
-export default function Index() {
-  const router = useRouter();
-  const isDesktop = router.query && router.query.view === 'desktop';
+export interface Props {
+  isDesktop: boolean;
+}
+
+export default function Index({ isDesktop }: Props) {
   return (
     <>
       <Head>
@@ -23,3 +26,13 @@ export default function Index() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  query,
+}) => {
+  return {
+    props: {
+      isDesktop: query && query.view === 'desktop',
+    },
+  };
+};
