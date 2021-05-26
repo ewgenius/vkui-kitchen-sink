@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import KitchenSinkApp from '../apps/KitchenSinkApp';
 import { ViewWidth } from '@vkontakte/vkui';
 import { GetServerSideProps } from 'next';

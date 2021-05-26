@@ -164,13 +164,13 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@vkontakte/icons@^1.60.0":
-  version "1.60.0"
-  resolved "https://registry.yarnpkg.com/@vkontakte/icons/-/icons-1.60.0.tgz#98088d587c306fc92b407d96a7df1fcba5a71743"
-  integrity sha512-ho8riAN3uRyy8bM8cJdB03mjO724tNtQOZWEL3o617JK2+Fbv6tVsSe5l8/z3JXp1Sa2AxX/nmJf6833eSlbZw==
+"@vkontakte/icons@^1.100.0":
+  version "1.100.0"
+  resolved "https://registry.yarnpkg.com/@vkontakte/icons/-/icons-1.100.0.tgz#a915424229d64bff947a52220356d74061dcbb4c"
+  integrity sha512-LqP8CJ3az3nSxIWhG71K9hRYDZmJ2VWCGzTxdC1kUvQSfUKV7fv5TfUK7rnbr/mPldE7NmAHBcxZIBTkfI2frA==
   dependencies:
     es6-object-assign "1.1.0"
-    svg-baker-runtime "1.4.6"
+    svg-baker-runtime "1.4.7"
 
 "@vkontakte/router@^0.0.12":
   version "0.0.12"
@@ -184,20 +184,25 @@
   dependencies:
     "@vkontakte/vk-bridge" "^2.1.2"
 
-"@vkontakte/vk-bridge@^2.1.2", "@vkontakte/vk-bridge@^2.3.0":
+"@vkontakte/vk-bridge@^2.1.2":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.3.0.tgz#d436daeab23bf51a4485a3a45493f793dab78187"
   integrity sha512-1kICD4u5J8EO4PyGg7ZMBwOju85Wh7zb5OxVs1JYB/ghTHg5YQSmpIx9M4NZH2TnK9KelUpBEs+TwFpkB5PMyw==
 
-"@vkontakte/vkjs@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.20.0.tgz#ddb9367649ab7e79754b9906c3f6e1960f624c37"
-  integrity sha512-bocEj9pcr6i6F0LN288xU3PX1MI4OJ3ZJXTa6kFx9IqEgk0CnoMtLAcuH2D7DzZAnc83DJCa/tuo9mT7XW035A==
+"@vkontakte/vk-bridge@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.4.1.tgz#22b64d729899a1ae7683ff171fac386ce643dc1e"
+  integrity sha512-4n1++E6IIQ+8R2K8PDCvLucwiGmXIKlynqhS3v5FuhlrsauGoLrudL4rC4r5gEnCxVDOuQzXgql7V9f5Vu6Azg==
 
-"@vkontakte/vkui@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.2.1.tgz#b770ddc54f0be84323b2485e999c10cfec3d8854"
-  integrity sha512-dU2rRlcN5/yAZvnNLIu9278gN+XiqayCEXsudek/yGgXsy6uBHcJ67dYAlVN0Hn8O6g+nfi8atnYd3R1L2lp7Q==
+"@vkontakte/vkjs@^0.21.0":
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vkjs/-/vkjs-0.21.0.tgz#869d3bf56d222502b6a60fadfb84b395ef4df325"
+  integrity sha512-A4xylORqX7fvHoXdTSvdxFB3Sw3p13edQcvs8hu/qPJKsEN05wO7l0qajyxhFOYhR+J1GvGzSR/XCt6PjW8hdA==
+
+"@vkontakte/vkui@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vkui/-/vkui-4.7.0.tgz#80426dc6c59eada815b354517c3947feea3a5a7d"
+  integrity sha512-Sr08gcWzlATZIuT+8Jz/OwEh20Z60Y4hymY+AlIohZnfFFCcUk7LFQIXVQtiQi7Hr2UjA7Afy3E6ApD66N6mHA==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -3867,10 +3872,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svg-baker-runtime@1.4.6:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/svg-baker-runtime/-/svg-baker-runtime-1.4.6.tgz#73499736c636610121a9e17ae6ceb2ea1023ec6b"
-  integrity sha512-n+Uq23mafI12WLHXahkjSY00qHJaNfeB9XgVKdo0C4kzrcn8JnunXNajvOlqkFaTqj7xT7MwTlFl3Hga8AevcQ==
+svg-baker-runtime@1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/svg-baker-runtime/-/svg-baker-runtime-1.4.7.tgz#f4720637f5b6202eef6378d81f1fead0815f8a4e"
+  integrity sha512-Zorfwwj5+lWjk/oxwSMsRdS2sPQQdTmmsvaSpzU+i9ZWi3zugHLt6VckWfnswphQP0LmOel3nggpF5nETbt6xw==
   dependencies:
     deepmerge "1.3.2"
     mitt "1.1.2"
